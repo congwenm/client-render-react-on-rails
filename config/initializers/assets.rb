@@ -9,3 +9,15 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+
+# TODO: figure out how to do this in new rails, basically override
+# > rake assets::precompile
+#
+# /lib/tasks/assets.rake
+# Rake::Task["assets:precompile"].clear
+# namespace :assets do
+#   task 'precompile' do
+#     puts "#----- Skip asset precompilation -----#"
+#   end
+# end

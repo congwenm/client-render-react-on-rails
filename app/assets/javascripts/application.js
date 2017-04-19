@@ -10,7 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+// require jquery
+// require jquery_ujs
+// require turbolinks
+// require_tree .
+
+console.log('hello world')
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Contact from './contact'
+
+document.onreadystatechange = function() {
+  ReactDOM.render(
+    <h1>
+      Hello, <Contact name="world"/>!
+    </h1>,
+    document.getElementById('root')
+  );
+}

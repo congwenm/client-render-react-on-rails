@@ -6,6 +6,8 @@ const webpack = require("webpack");
 const fs = require('fs') // create fingerprint files so rails can read it
 
 const prod = process.argv.indexOf('-p') !== -1
+
+// hash allows finger printing by webpack
 const css_output_template = prod ? 'stylesheets/[name]-[hash].css' : 'stylesheets/[name].css'
 const js_output_template = prod ? 'javascripts/[name]-[hash].js' : 'javascripts/[name].js'
 
@@ -19,7 +21,7 @@ module.exports = {
 
   output: {
     path: __dirname + "/public",
-    filename: "javascripts/[name]-[hash].js", // hash allows finger printing by webpack
+    filename: js_output_template,
   },
 
   module: {
@@ -44,7 +46,7 @@ module.exports = {
   },
   // this will handle removing css file into their final resting place
   plugins: [
-    new ExtractTextPlugin('stylesheets/[name]-[hash].css'),
+    new ExtractTextPlugin(css_output_template),
 
     // write fingerprint to rb file
     function()  {

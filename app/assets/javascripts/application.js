@@ -10,11 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+// require jquery
+// require jquery_ujs
+// require turbolinks
+// require_tree .
 
-
-
+console.log('hello world')
 let odds = [0,2,4,6,8].map(v => v+1)

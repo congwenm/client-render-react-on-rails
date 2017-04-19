@@ -1,6 +1,9 @@
 'use strict';
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 const webpack = require("webpack");
+const fs = require('fs') // create fingerprint files so rails can read it
 
 module.exports = {
   context: __dirname + "/app/assets/javascripts",
@@ -11,7 +14,7 @@ module.exports = {
 
   output: {
     path: __dirname + "/public",
-    filename: "javascripts/[name].js",
+    filename: "javascripts/[name]-[hash].js", // hash allows finger printing by webpack
   },
 
   module: {
@@ -28,6 +31,21 @@ module.exports = {
           }
         ],
       },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('css!sass')
+      }
     ]
-  }
+  },
+  // this will handle removing css file into their final resting place
+  plugins: [
+    new ExtractTextPlugin('stylesheets/[name]-[hash].css'),
+
+    function()  {
+      this.plugin('done', function(stats) {
+        let output = "ASSET_FINGERPRINT = \"" + stats.hash + "\""
+        fs.writeFileSync("config/initializers/fingerprint.rb", output, "utf8")
+      })
+    },
+  ]
 };

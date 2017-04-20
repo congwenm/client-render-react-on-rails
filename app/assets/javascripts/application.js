@@ -16,14 +16,16 @@
 // require_tree .
 
 console.log('hello world')
-let odds = [0,2,4,6,8].map(v => v+1)
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Contact from './contact'
 
 document.onreadystatechange = function() {
   ReactDOM.render(
-    <h1>Hello, world!</h1>,
+    <h1>
+      Hello, <Contact name="world"/>!
+    </h1>,
     document.getElementById('root')
   );
 }

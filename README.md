@@ -1,24 +1,19 @@
-# README
+# Boiler plate for Connecting react and rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## To get the react-rails app running
+first get all dependencies installed
 
-Things you may want to cover:
+>$ brew install node yarn
 
-* Ruby version
+>$ gem install rails
 
-* System dependencies
+then in two terminal instances run these:
 
-* Configuration
+>$ rails s
 
-* Database creation
+>$ yarn watch
 
-* Database initialization
 
-* How to run the test suite
+Good to go!
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...

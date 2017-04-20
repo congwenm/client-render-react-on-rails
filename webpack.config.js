@@ -8,8 +8,8 @@ const fs = require('fs') // create fingerprint files so rails can read it
 const prod = process.argv.indexOf('-p') !== -1
 
 // hash allows finger printing by webpack
-const css_output_template = prod ? 'stylesheets/[name]-[hash].css' : 'stylesheets/[name].css'
-const js_output_template = prod ? 'javascripts/[name]-[hash].js' : 'javascripts/[name].js'
+const css_output_template = prod ? 'stylesheets/[name]-[hash].css' : 'stylesheets/[name]-dev.css'
+const js_output_template = prod ? 'javascripts/[name]-[hash].js' : 'javascripts/[name]-dev.js'
 
 module.exports = {
   context: __dirname + "/app/assets",

@@ -15,5 +15,8 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
+  },
+  "scripts": {
+    "watch": "./node_modules/webpack/bin/webpack.js -w"
   }
 }

@@ -58,6 +58,7 @@ module.exports = {
 
     // delete previous outputs
     function() {
+      return 0; // cant use this, will delete js and css everytime
       this.plugin('compile', function() {
         let basepath = __dirname + '/public'
         let paths = ["/javascripts", "/stylesheets"];
